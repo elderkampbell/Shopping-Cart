@@ -17,7 +17,7 @@ describe('1 - Teste a função fetchProducts', () => {
   test('Testa se o retorno da função fetchProducts com o argumento computador é igual a computadorSearch', async () => {
     expect(await fetchProducts('computador')).toBeEqual(computadorSearch)
   });
-  test('', async () => {
+  test('Teste se, ao chamar a função fetchProducts sem argumento, retorna um erro com a mensagem: You must provide an url', async () => {
     try {
       await fetchProducts();
     } catch (error) {
