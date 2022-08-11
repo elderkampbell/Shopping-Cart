@@ -38,4 +38,21 @@ const createCartItemElement = ({ sku, name, salePrice }) => {
   return li;
 };
 
+const products = async () => {
+  const { results } = await fetchProducts('computador');
+  results.forEach(({ id: sku, title: name, thumbnail: image }) => {
+    const createElement = createProductItemElement({ sku, name, image });
+    const items = document.querySelector('.items');
+    items.appendChild(createElement);
+    const btn = createElement.querySelector('.item__add');
+    btn.addEventListener('click', async () => {
+      const productid = getSkuFromProductItem(createElement);
+      const { price: salePrice } = await fetchItem(productid);
+      const addItemToCart = createCartItemElement({ sku, name, salePrice });
+      document.querySelector('.cart__items').appendChild(addItemToCart);
+    });
+});
+};
+products();
+
 window.onload = () => { };

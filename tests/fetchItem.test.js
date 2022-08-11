@@ -14,8 +14,8 @@ describe('Testa se fetchItem é uma função', () => {
     await fetchItem('MLB1615760527');
     expect(fetch).toBeCalledWith('https://api.mercadolibre.com/items/MLB1615760527');
   });
-  test('Testa o retorno da função fetchItem com o argumento MLB1615760527', () => {
-    expect(fetchItem('MLB1615760527')).toEqual(item);
+  test('Testa o retorno da função fetchItem com o argumento MLB1615760527',async () => {
+    expect(await fetchItem('MLB1615760527')).toEqual(item);
   });
   test('Teste se, ao chamar a função fetchItem sem argumento, retorna um erro com a mensagem: You must provide an url', async () => {
     try {
