@@ -15,7 +15,7 @@ describe('1 - Teste a função fetchProducts', () => {
     expect(fetch).toBeCalledWith('https://api.mercadolibre.com/sites/MLB/search?q=computador')
   });
   test('Testa se o retorno da função fetchProducts com o argumento computador é igual a computadorSearch', async () => {
-    expect(await fetchProducts('computador')).toBeEqual(computadorSearch)
+    expect(await fetchProducts('computador')).toEqual(computadorSearch)
   });
   test('Teste se, ao chamar a função fetchProducts sem argumento, retorna um erro com a mensagem: You must provide an url', async () => {
     try {
